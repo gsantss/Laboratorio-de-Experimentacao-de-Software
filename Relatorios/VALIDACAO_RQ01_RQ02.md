@@ -7,6 +7,25 @@ Responsável: Arthur Pedra (`arthies2323`)
 - **RQ01** — idade do repositório, calculada a partir de `createdAt`.
 - **RQ02** — total de pull requests aceitas, via `pullRequests(states: [MERGED]).totalCount`.
 
+## Hipóteses informais
+
+**RQ01. Sistemas populares são maduros/antigos?**
+Hipótese: sim, a maioria dos repositórios populares tende a ser madura/antiga.
+Acumular um número alto de estrelas geralmente exige tempo — visibilidade,
+reputação e descoberta orgânica não acontecem da noite pro dia. É de se
+esperar uma idade mediana de vários anos, com poucas exceções de projetos
+muito recentes que viralizaram rápido (ex.: ferramentas de IA em alta).
+
+**RQ02. Sistemas populares recebem muita contribuição externa?**
+Hipótese: sim, repositórios populares tendem a receber bastante contribuição
+externa. Mais visibilidade atrai mais desenvolvedores interessados, e sendo
+open-source, é comum que usuários que encontram bugs ou querem novas
+funcionalidades abram pull requests. Espera-se um número mediano alto de PRs
+aceitas, especialmente nos repositórios com mais estrelas.
+
+*(Hipóteses formuladas antes da análise estatística completa, que depende dos
+1.000 repositórios da Lab01S02/S03 — ainda não coletados.)*
+
 ## Extração — implementação própria
 
 Query GraphQL escrita e testada de forma independente, sem depender do script
