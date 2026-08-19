@@ -1,4 +1,5 @@
 import os
+import csv
 import json
 import sys
 import time
@@ -15,7 +16,7 @@ from datetime import datetime, timezone
 
 GITHUB_GRAPHQL_URL = "https://api.github.com/graphql"
 
-TOTAL_REPOSITORIES = 100
+TOTAL_REPOSITORIES = 1000
 
 # Quantidade por requisição.
 # Mantemos baixo para evitar uma query muito pesada.
@@ -32,7 +33,12 @@ OUTPUT_DIR = BASE_DIR / "data"
 
 OUTPUT_FILE = (
     OUTPUT_DIR /
-    "repositories_100.json"
+    "repositories_1000.json"
+)
+
+CSV_OUTPUT_FILE = (
+    OUTPUT_DIR /
+    "repositories_1000.csv"
 )
 
 
@@ -736,6 +742,78 @@ def save_json(repositories):
 
 
 # ============================================================
+# SALVAR CSV - LAB01S02
+# ============================================================
+
+def save_csv(repositories):
+
+    OUTPUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    if not repositories:
+        print(
+            "ATENÇÃO: nenhum repositório "
+            "disponível para exportação CSV."
+        )
+        return
+
+    fieldnames = [
+        "position",
+        "name",
+        "name_with_owner",
+        "url",
+        "stars",
+
+        # RQ01
+        "created_at",
+        "age_days",
+        "age_years",
+
+        # RQ02
+        "accepted_pull_requests",
+
+        # RQ03
+        "releases",
+
+        # RQ04
+        "updated_at",
+        "days_since_last_update",
+
+        # RQ05
+        "primary_language",
+
+        # RQ06
+        "total_issues",
+        "closed_issues",
+        "closed_issues_ratio",
+        "closed_issues_percentage"
+    ]
+
+    with open(
+        CSV_OUTPUT_FILE,
+        "w",
+        newline="",
+        encoding="utf-8"
+    ) as file:
+
+        writer = csv.DictWriter(
+            file,
+            fieldnames=fieldnames
+        )
+
+        writer.writeheader()
+        writer.writerows(repositories)
+
+    print()
+    print(
+        f"CSV gerado:\n"
+        f"{CSV_OUTPUT_FILE}"
+    )
+
+
+# ============================================================
 # VALIDAÇÃO
 # ============================================================
 
@@ -904,8 +982,8 @@ def main():
     print("=" * 80)
 
     print(
-        "LAB01S01 - EXTRAÇÃO DOS "
-        "100 REPOSITÓRIOS MAIS POPULARES"
+        "LAB01S02 - EXTRAÇÃO DOS "
+        "1000 REPOSITÓRIOS MAIS POPULARES"
     )
 
     print("=" * 80)
@@ -927,6 +1005,11 @@ def main():
 
 
     save_json(
+        repositories
+    )
+
+
+    save_csv(
         repositories
     )
 
