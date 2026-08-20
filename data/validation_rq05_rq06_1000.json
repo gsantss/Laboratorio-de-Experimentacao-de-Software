@@ -1,0 +1,425 @@
+{
+  "rq05_analysis": {
+    "total_repositories": 1000,
+    "with_language": 913,
+    "missing_language": 87,
+    "distinct_languages": 43,
+    "distribution": {
+      "Python": 228,
+      "TypeScript": 174,
+      "JavaScript": 111,
+      "Go": 76,
+      "Rust": 57,
+      "C++": 41,
+      "Java": 41,
+      "Jupyter Notebook": 24,
+      "C": 21,
+      "Shell": 20,
+      "Ruby": 13,
+      "HTML": 11,
+      "Swift": 10,
+      "Kotlin": 9,
+      "C#": 8,
+      "CSS": 8,
+      "Dart": 6,
+      "Vue": 6,
+      "Markdown": 5,
+      "MDX": 4,
+      "Clojure": 4,
+      "PHP": 4,
+      "Vim Script": 3,
+      "Zig": 3,
+      "Dockerfile": 2,
+      "Scala": 2,
+      "PowerShell": 2,
+      "Makefile": 2,
+      "Haskell": 2,
+      "Astro": 2,
+      "TeX": 2,
+      "Batchfile": 1,
+      "Blade": 1,
+      "Roff": 1,
+      "Assembly": 1,
+      "Nunjucks": 1,
+      "Julia": 1,
+      "Lua": 1,
+      "Svelte": 1,
+      "LLVM": 1,
+      "V": 1,
+      "Elixir": 1,
+      "Objective-C": 1
+    },
+    "rare_languages_count": 12,
+    "in_tiobe_top20": 610,
+    "out_tiobe_top20": 303
+  },
+  "rq06_statistics": {
+    "count": 957,
+    "mean": 80.26,
+    "median": 87.57,
+    "minimum": 7.69,
+    "maximum": 100.0,
+    "standard_deviation": 21.04,
+    "q1": 70.49,
+    "q3": 96.81,
+    "iqr": 26.32
+  },
+  "rq06_distribution": {
+    "0-20%": 12,
+    "20-40%": 57,
+    "40-60%": 94,
+    "60-80%": 179,
+    "80-100%": 615
+  },
+  "rq06_outliers": {
+    "lower_limit": 31.01,
+    "upper_limit": 136.29,
+    "count": 40,
+    "repositories": [
+      {
+        "position": 250,
+        "repository": "ComposioHQ/awesome-claude-skills",
+        "value": 7.69
+      },
+      {
+        "position": 714,
+        "repository": "floodsung/Deep-Learning-Papers-Reading-Roadmap",
+        "value": 8.62
+      },
+      {
+        "position": 775,
+        "repository": "anthropics/prompt-eng-interactive-tutorial",
+        "value": 9.52
+      },
+      {
+        "position": 537,
+        "repository": "elder-plinius/CL4R1T4S",
+        "value": 10.13
+      },
+      {
+        "position": 916,
+        "repository": "anthropics/financial-services",
+        "value": 10.23
+      },
+      {
+        "position": 506,
+        "repository": "type-challenges/type-challenges",
+        "value": 10.97
+      },
+      {
+        "position": 46,
+        "repository": "anthropics/skills",
+        "value": 13.46
+      },
+      {
+        "position": 294,
+        "repository": "kelseyhightower/nocode",
+        "value": 14.84
+      },
+      {
+        "position": 625,
+        "repository": "zbezj/HEU_KMS_Activator",
+        "value": 15.61
+      },
+      {
+        "position": 959,
+        "repository": "anthropics/claude-plugins-official",
+        "value": 16.09
+      },
+      {
+        "position": 123,
+        "repository": "ruanyf/weekly",
+        "value": 16.23
+      },
+      {
+        "position": 622,
+        "repository": "alex/what-happens-when",
+        "value": 18.0
+      },
+      {
+        "position": 102,
+        "repository": "VoltAgent/awesome-design-md",
+        "value": 20.26
+      },
+      {
+        "position": 527,
+        "repository": "GitHubDaily/GitHubDaily",
+        "value": 20.29
+      },
+      {
+        "position": 797,
+        "repository": "myshell-ai/OpenVoice",
+        "value": 20.89
+      },
+      {
+        "position": 781,
+        "repository": "fengdu78/Coursera-ML-AndrewNg-Notes",
+        "value": 21.43
+      },
+      {
+        "position": 815,
+        "repository": "ashishpatel26/500-AI-Agents-Projects",
+        "value": 21.74
+      },
+      {
+        "position": 828,
+        "repository": "xinntao/Real-ESRGAN",
+        "value": 23.43
+      },
+      {
+        "position": 866,
+        "repository": "XingangPan/DragGAN",
+        "value": 23.96
+      },
+      {
+        "position": 938,
+        "repository": "lllyasviel/ControlNet",
+        "value": 23.96
+      },
+      {
+        "position": 750,
+        "repository": "google-research/google-research",
+        "value": 24.04
+      },
+      {
+        "position": 329,
+        "repository": "youngyangyang04/leetcode-master",
+        "value": 24.2
+      },
+      {
+        "position": 416,
+        "repository": "facebookresearch/segment-anything",
+        "value": 25.35
+      },
+      {
+        "position": 893,
+        "repository": "fxsjy/jieba",
+        "value": 26.34
+      },
+      {
+        "position": 131,
+        "repository": "florinpop17/app-ideas",
+        "value": 26.37
+      },
+      {
+        "position": 37,
+        "repository": "jackfrued/Python-100-Days",
+        "value": 26.47
+      },
+      {
+        "position": 777,
+        "repository": "TencentARC/GFPGAN",
+        "value": 26.47
+      },
+      {
+        "position": 204,
+        "repository": "paperclipai/paperclip",
+        "value": 26.8
+      },
+      {
+        "position": 175,
+        "repository": "OpenCut-app/OpenCut",
+        "value": 26.85
+      },
+      {
+        "position": 245,
+        "repository": "CompVis/stable-diffusion",
+        "value": 27.03
+      },
+      {
+        "position": 464,
+        "repository": "jamiepine/voicebox",
+        "value": 28.01
+      },
+      {
+        "position": 212,
+        "repository": "dair-ai/Prompt-Engineering-Guide",
+        "value": 29.02
+      },
+      {
+        "position": 419,
+        "repository": "lencx/ChatGPT",
+        "value": 29.12
+      },
+      {
+        "position": 782,
+        "repository": "shiyu-coder/Kronos",
+        "value": 29.21
+      },
+      {
+        "position": 208,
+        "repository": "Leonxlnx/taste-skill",
+        "value": 29.27
+      },
+      {
+        "position": 613,
+        "repository": "aymericdamien/TensorFlow-Examples",
+        "value": 29.71
+      },
+      {
+        "position": 889,
+        "repository": "geekcomputers/Python",
+        "value": 29.89
+      },
+      {
+        "position": 813,
+        "repository": "musistudio/claude-code-router",
+        "value": 30.26
+      },
+      {
+        "position": 554,
+        "repository": "docker/awesome-compose",
+        "value": 30.92
+      },
+      {
+        "position": 699,
+        "repository": "google-research/bert",
+        "value": 31.0
+      }
+    ]
+  },
+  "quality": {
+    "rq05_missing_language": {
+      "count": 87,
+      "repositories": [
+        "sindresorhus/awesome",
+        "jwasham/coding-interview-university",
+        "awesome-selfhosted/awesome-selfhosted",
+        "996icu/996.ICU",
+        "trimstray/the-book-of-secret-knowledge",
+        "multica-ai/andrej-karpathy-skills",
+        "CyC2018/CS-Notes",
+        "getify/You-Dont-Know-JS",
+        "github/gitignore",
+        "jlevy/the-art-of-command-line",
+        "x1xhlol/system-prompts-and-models-of-ai-tools",
+        "Hack-with-Github/Awesome-Hacking",
+        "justjavac/free-programming-books-zh_CN",
+        "VoltAgent/awesome-design-md",
+        "Anduin2017/HowToCook",
+        "ruanyf/weekly",
+        "mtdvio/every-programmer-should-know",
+        "florinpop17/app-ideas",
+        "punkpeye/awesome-mcp-servers",
+        "deepseek-ai/DeepSeek-R1",
+        "MunGell/awesome-for-beginners",
+        "ByteByteGoHq/system-design-101",
+        "DopplerHQ/awesome-interview-questions",
+        "Developer-Y/cs-video-courses",
+        "mlabonne/llm-course",
+        "awesomedata/awesome-public-datasets",
+        "sdmg15/Best-websites-a-programmer-should-visit",
+        "enaqx/awesome-react",
+        "vuejs/awesome-vue",
+        "binhnguyennus/awesome-scalability",
+        "fffaraz/awesome-cpp",
+        "daytonaio/daytona",
+        "prakhar1989/awesome-courses",
+        "bradtraversy/design-resources-for-developers",
+        "sindresorhus/awesome-nodejs",
+        "lydiahallie/javascript-questions",
+        "PlexPt/awesome-chatgpt-prompts-zh",
+        "xingshaocheng/architect-awesome",
+        "tiimgreen/github-cheat-sheet",
+        "wasabeef/awesome-android-ui",
+        "firstcontributions/first-contributions",
+        "ngosang/trackerslist",
+        "google/material-design-icons",
+        "VoltAgent/awesome-openclaw-skills",
+        "dkhamsing/open-source-ios-apps",
+        "Avik-Jain/100-Days-Of-ML-Code",
+        "serhii-londar/open-source-mac-os-apps",
+        "kelseyhightower/kubernetes-the-hard-way",
+        "akullpp/awesome-java",
+        "DovAmir/awesome-design-patterns",
+        "nilbuild/design-patterns-for-humans",
+        "brillout/awesome-react-components",
+        "karan/Projects",
+        "lukasz-madon/awesome-remote-job",
+        "GitHubDaily/GitHubDaily",
+        "dypsilon/frontend-dev-bookmarks",
+        "elder-plinius/CL4R1T4S",
+        "kepano/obsidian-skills",
+        "ziishaned/learn-regex",
+        "karanpratapsingh/system-design",
+        "alex/what-happens-when",
+        "zbezj/HEU_KMS_Activator",
+        "k88hudson/git-flight-rules",
+        "LC044/WeChatMsg",
+        "freefq/free",
+        "chatanywhere/GPT_API_free",
+        "deepseek-ai/awesome-deepseek-integration",
+        "karpathy/LLM101n",
+        "alebcay/awesome-shell",
+        "AobingJava/JavaFamily",
+        "veggiemonk/awesome-docker",
+        "ashishpatel26/500-AI-Machine-learning-Deep-learning-Computer-vision-NLP-Projects-with-code",
+        "GorvGoyl/Clone-Wars",
+        "formulahendry/955.WLB",
+        "SheetJS/sheetjs",
+        "slatedocs/slate",
+        "kuchin/awesome-cto",
+        "geekan/HowToLiveLonger",
+        "sorrycc/awesome-javascript",
+        "awesome-foss/awesome-sysadmin",
+        "xitu/gold-miner",
+        "nodejs/node-v0.x-archive",
+        "mli/paper-reading",
+        "waydabber/BetterDisplay",
+        "cursor/cursor",
+        "Leey21/awesome-ai-research-writing",
+        "ibraheemdev/modern-unix"
+      ]
+    },
+    "rq06_no_issues": {
+      "count": 43,
+      "repositories": [
+        "vinta/awesome-python",
+        "awesome-selfhosted/awesome-selfhosted",
+        "996icu/996.ICU",
+        "torvalds/linux",
+        "trimstray/the-book-of-secret-knowledge",
+        "multica-ai/andrej-karpathy-skills",
+        "DigitalPlatDev/FreeDomain",
+        "github/gitignore",
+        "deepseek-ai/deepseek-harness",
+        "ripienaar/free-for-dev",
+        "Hack-with-Github/Awesome-Hacking",
+        "justjavac/free-programming-books-zh_CN",
+        "openai/whisper",
+        "django/django",
+        "laravel/laravel",
+        "Developer-Y/cs-video-courses",
+        "swisskyrepo/PayloadsAllTheThings",
+        "d2l-ai/d2l-zh",
+        "binhnguyennus/awesome-scalability",
+        "chrislgarry/Apollo-11",
+        "bradtraversy/design-resources-for-developers",
+        "FFmpeg/FFmpeg",
+        "git/git",
+        "Solido/awesome-flutter",
+        "soimort/you-get",
+        "maybe-finance/maybe",
+        "JetBrains/kotlin",
+        "xai-org/grok-1",
+        "Avik-Jain/100-Days-Of-ML-Code",
+        "poteto/hiring-without-whiteboards",
+        "discourse/discourse",
+        "gedoor/legado",
+        "LC044/WeChatMsg",
+        "bradtraversy/50projects50days",
+        "wg/wrk",
+        "karpathy/LLM101n",
+        "hehonghui/awesome-english-ebooks",
+        "unknwon/the-way-to-go_ZH_CN",
+        "mli/paper-reading",
+        "shadowsocks/shadowsocks",
+        "apache/kafka",
+        "AFNetworking/AFNetworking",
+        "cursor/cursor"
+      ]
+    },
+    "rq06_invalid_percentage": [],
+    "rq06_closed_greater_than_total": []
+  }
+}
