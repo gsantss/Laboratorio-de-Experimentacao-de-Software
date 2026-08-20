@@ -1,0 +1,18 @@
+snapshot_date,sprint,number,title,repository,state,status_column,assignees
+2026-08-20T19:37:55.097155+00:00,Lab01S02,18,LAB01S02 - RQ05 E RQ06 - Validar resultado para 1000,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,PortoPedro
+2026-08-20T19:37:55.097155+00:00,Lab01S02,20,LAB01S02 - Consolidar relatório da sprint,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,PortoPedro
+2026-08-20T19:37:55.097155+00:00,Lab01S02,17,LAB01S02 - RQ03 E RQ04 - Validar resultado para 1000,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,1,Configurar repositório do LAB01,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,2,Configurar GitHub Projects v2 e fluxo Kanban,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,7,(LAB01S01) - Validar resultados em 5–10 repositórios,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,"gsantss,arthies2323,PortoPedro"
+2026-08-20T19:37:55.097155+00:00,Lab01S02,4,(LAB01S01) - Implementar campos das RQ03 e RQ04,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,6,(LAB01S01) - Implementar chamada automática da API,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,8,(LAB01S01) - Executar e validar consulta dos 100 repositórios,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,5,(LAB01S01) - Implementar campos das RQ05 e RQ06,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,PortoPedro
+2026-08-20T19:37:55.097155+00:00,Lab01S02,10,feat: RQ03 e RQ04,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,11,feat: RQ03 e RQ04,gsantss/Laboratorio-de-Experimentacao-de-Software,MERGED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,3,(LAB01S01) - Implementar campos das RQ01 e RQ02,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,arthies2323
+2026-08-20T19:37:55.097155+00:00,Lab01S02,15,LAB01S02 - Adaptar script para 1000 repositórios com paginação,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-20T19:37:55.097155+00:00,Lab01S02,16,LAB01S02 - RQ01 E RQ02 - Validar resultado para 1000,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,arthies2323
+2026-08-20T19:37:55.097155+00:00,Lab01S02,19,LAB01S02 - Snapshot do board em CSV (fim de sprint),gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,arthies2323
+2026-08-20T19:37:55.097155+00:00,Lab01S02,21,feat: 1000 repositórios: extração e validação,gsantss/Laboratorio-de-Experimentacao-de-Software,MERGED,Done,gsantss
