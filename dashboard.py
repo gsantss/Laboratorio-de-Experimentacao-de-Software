@@ -3,6 +3,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -43,26 +44,61 @@ def get_dataframe() -> pd.DataFrame | None:
 # RODAR SCRIPTS DE EXTRAÇÃO
 # ============================================================
 
+def render_log(lines: list[str]) -> None:
+    """Mostra o log numa caixa com scroll que acompanha o final automaticamente."""
+    import html as html_lib
+    import streamlit.components.v1 as components
+
+    text = html_lib.escape("\n".join(lines[-500:]))
+    components.html(
+        f"""
+        <div id="log-box" style="
+            height: 300px; overflow-y: auto; background: #0e1117; color: #fafafa;
+            font-family: monospace; font-size: 12px; padding: 8px; border-radius: 4px;
+            white-space: pre-wrap; word-break: break-word;
+        ">{text}</div>
+        <script>
+            var box = document.getElementById("log-box");
+            box.scrollTop = box.scrollHeight;
+        </script>
+        """,
+        height=310,
+    )
+
+
 def run_script(script_name: str, token: str) -> None:
+    """Roda o script mostrando o log em tempo real, igual rodando no terminal."""
     env = os.environ.copy()
     env["GITHUB_TOKEN"] = token
+    env["PYTHONIOENCODING"] = "utf-8"
 
-    with st.spinner(f"Rodando {script_name}... isso pode demorar alguns minutos"):
-        result = subprocess.run(
-            [sys.executable, str(BASE_DIR / script_name)],
+    with st.status(f"Rodando {script_name}...", expanded=True) as status:
+        process = subprocess.Popen(
+            [sys.executable, "-u", str(BASE_DIR / script_name)],
             cwd=BASE_DIR,
             env=env,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
             text=True,
+            encoding="utf-8",
+            errors="replace",
+            bufsize=1,
         )
 
-    if result.returncode == 0:
-        st.success(f"{script_name} rodou com sucesso.")
-    else:
-        st.error(f"{script_name} terminou com erro (código {result.returncode}).")
+        log_lines: list[str] = []
+        log_area = st.empty()
 
-    with st.expander("Ver saída completa"):
-        st.code(result.stdout + "\n" + result.stderr)
+        for line in process.stdout:
+            log_lines.append(line.rstrip("\n"))
+            with log_area.container():
+                render_log(log_lines)
+
+        process.wait()
+
+        if process.returncode == 0:
+            status.update(label=f"{script_name} concluído", state="complete")
+        else:
+            status.update(label=f"{script_name} terminou com erro (código {process.returncode})", state="error")
 
     st.cache_data.clear()
 
@@ -73,26 +109,18 @@ def run_script(script_name: str, token: str) -> None:
 
 st.sidebar.title("Lab01 — Controles")
 
-token_input = st.sidebar.text_input(
-    "GITHUB_TOKEN",
-    value=os.environ.get("GITHUB_TOKEN", ""),
-    type="password",
-    help="Se já rodou `$env:GITHUB_TOKEN = (gh auth token)` no terminal antes de abrir o dashboard, isso já vem preenchido.",
-)
+token_input = os.environ.get("GITHUB_TOKEN", "")
 
-st.sidebar.markdown("### Rodar extrações")
+st.sidebar.markdown("### Rodar extração")
 
-if st.sidebar.button("Extrair 1000 repositórios (extract_repositories.py)"):
+if st.sidebar.button("Extrair 1000 repositórios (todas as RQs)"):
     if not token_input:
-        st.sidebar.error("Preencha o GITHUB_TOKEN antes de rodar.")
+        st.sidebar.error(
+            "GITHUB_TOKEN não encontrado no ambiente. Feche o dashboard e rode "
+            '`$env:GITHUB_TOKEN = (gh auth token)` no terminal antes de abrir ele.'
+        )
     else:
         run_script("extract_repositories.py", token_input)
-
-if st.sidebar.button("Extrair amostra RQ01/RQ02 (extract_rq01_rq02.py)"):
-    if not token_input:
-        st.sidebar.error("Preencha o GITHUB_TOKEN antes de rodar.")
-    else:
-        run_script("extract_rq01_rq02.py", token_input)
 
 if st.sidebar.button("Recarregar dados (sem rodar nada)"):
     st.cache_data.clear()
@@ -102,6 +130,14 @@ if st.sidebar.button("Recarregar dados (sem rodar nada)"):
 # ============================================================
 # CORPO PRINCIPAL
 # ============================================================
+
+def styled_histogram(data: pd.DataFrame, x: str, title: str, nbins: int = 40):
+    """Histograma com contorno escuro entre as barras, pra dar mais contraste."""
+    fig = px.histogram(data, x=x, nbins=nbins, title=title)
+    fig.update_traces(marker_line_color="#0e1117", marker_line_width=1.5)
+    fig.update_layout(bargap=0.08)
+    return fig
+
 
 st.title("Dashboard — Características de repositórios populares do GitHub")
 st.caption("Laboratório de Experimentação de Software — Lab01")
@@ -147,20 +183,38 @@ with tabs[1]:
     col1, col2 = st.columns(2)
     col1.metric("Idade mediana", f"{filtered['age_years'].median():.2f} anos")
     col2.metric("Idade média", f"{filtered['age_years'].mean():.2f} anos")
-    st.plotly_chart(px.histogram(filtered, x="age_years", nbins=40, title="Distribuição de idade (anos)"), use_container_width=True)
+    st.plotly_chart(styled_histogram(filtered, "age_years", "Distribuição de idade (anos)"), use_container_width=True)
 
 with tabs[2]:
     st.subheader("RQ02 — Sistemas populares recebem muita contribuição externa?")
     col1, col2 = st.columns(2)
     col1.metric("PRs aceitas — mediana", f"{filtered['accepted_pull_requests'].median():.0f}")
     col2.metric("PRs aceitas — média", f"{filtered['accepted_pull_requests'].mean():.0f}")
-    st.plotly_chart(px.box(filtered, y="accepted_pull_requests", points="outliers", title="Distribuição de PRs aceitas"), use_container_width=True)
+    prs_log = filtered.assign(log_prs=np.log10(filtered["accepted_pull_requests"] + 1))
+    prs_fig = px.histogram(
+        prs_log, x="log_prs", nbins=40,
+        title="Distribuição de PRs aceitas (escala logarítmica)",
+    )
+    prs_fig.update_traces(marker_line_color="#0e1117", marker_line_width=1.5)
+    prs_fig.update_layout(bargap=0.08)
+    prs_fig.update_xaxes(
+        tickvals=[0, 1, 2, 3, 4, 5],
+        ticktext=["0", "10", "100", "1k", "10k", "100k"],
+        title="PRs aceitas",
+    )
+    st.plotly_chart(prs_fig, use_container_width=True)
+    st.caption(
+        "Escala logarítmica no eixo X — os dados são muito assimétricos "
+        "(mediana de 768, mas repositórios extremos com mais de 100 mil PRs, "
+        "e alguns com 0), então em escala normal quase todas as barras "
+        "ficariam achatadas perto do zero."
+    )
 
 with tabs[3]:
     if "releases" in filtered.columns:
         st.subheader("RQ03 — Sistemas populares lançam releases com frequência?")
         st.metric("Releases — mediana", f"{filtered['releases'].median():.0f}")
-        st.plotly_chart(px.histogram(filtered, x="releases", nbins=40, title="Distribuição de releases"), use_container_width=True)
+        st.plotly_chart(styled_histogram(filtered, "releases", "Distribuição de releases"), use_container_width=True)
     else:
         st.info("Campo `releases` não encontrado no dataset atual.")
 
@@ -168,7 +222,7 @@ with tabs[4]:
     if "days_since_last_update" in filtered.columns:
         st.subheader("RQ04 — Sistemas populares são atualizados com frequência?")
         st.metric("Dias desde a última atualização — mediana", f"{filtered['days_since_last_update'].median():.0f}")
-        st.plotly_chart(px.histogram(filtered, x="days_since_last_update", nbins=40, title="Dias desde a última atualização"), use_container_width=True)
+        st.plotly_chart(styled_histogram(filtered, "days_since_last_update", "Dias desde a última atualização"), use_container_width=True)
     else:
         st.info("Campo `days_since_last_update` não encontrado no dataset atual.")
 
@@ -177,7 +231,9 @@ with tabs[5]:
         st.subheader("RQ05 — Sistemas populares são escritos nas linguagens mais populares?")
         lang_counts = filtered["primary_language"].value_counts().head(15).reset_index()
         lang_counts.columns = ["linguagem", "quantidade"]
-        st.plotly_chart(px.pie(lang_counts, names="linguagem", values="quantidade", title="Top 15 linguagens primárias"), use_container_width=True)
+        pie_fig = px.pie(lang_counts, names="linguagem", values="quantidade", title="Top 15 linguagens primárias")
+        pie_fig.update_traces(marker_line_color="#0e1117", marker_line_width=1.5)
+        st.plotly_chart(pie_fig, use_container_width=True)
     else:
         st.info("Campo `primary_language` não encontrado no dataset atual.")
 
@@ -185,6 +241,6 @@ with tabs[6]:
     if "closed_issues_percentage" in filtered.columns:
         st.subheader("RQ06 — Sistemas populares possuem alto percentual de issues fechadas?")
         st.metric("% issues fechadas — mediana", f"{filtered['closed_issues_percentage'].median():.2f}%")
-        st.plotly_chart(px.histogram(filtered, x="closed_issues_percentage", nbins=40, title="Distribuição do % de issues fechadas"), use_container_width=True)
+        st.plotly_chart(styled_histogram(filtered, "closed_issues_percentage", "Distribuição do % de issues fechadas"), use_container_width=True)
     else:
         st.info("Campo `closed_issues_percentage` não encontrado no dataset atual.")
