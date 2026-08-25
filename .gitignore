@@ -1,4 +1,5 @@
 .venv/
+.venv-dashboard/
 .env
 __pycache__/
 *.pyc
