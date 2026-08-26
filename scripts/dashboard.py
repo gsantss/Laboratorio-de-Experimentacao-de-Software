@@ -9,8 +9,9 @@ import plotly.express as px
 import streamlit as st
 
 BASE_DIR = Path(__file__).resolve().parent
-DATA_1000 = BASE_DIR / "data" / "repositories_1000.csv"
-DATA_100 = BASE_DIR / "data" / "repositories_100.json"
+ROOT_DIR = BASE_DIR.parent
+DATA_1000 = ROOT_DIR / "data" / "repositories_1000.csv"
+DATA_100 = ROOT_DIR / "data" / "repositories_100.json"
 
 st.set_page_config(
     page_title="Lab01 — Dashboard de repositórios populares",
