@@ -1,0 +1,11 @@
+# Dependências do dashboard (scripts/dashboard.py).
+# Os demais scripts (extract_repositories.py, snapshot_board.py) usam apenas a
+# biblioteca padrão do Python e não precisam de nada aqui.
+#
+# Instalação:  pip install -r scripts/requirements.txt
+# Execução:    python -m streamlit run scripts/dashboard.py
+
+streamlit>=1.62
+pandas>=2.2
+numpy>=1.26
+plotly>=5.22
