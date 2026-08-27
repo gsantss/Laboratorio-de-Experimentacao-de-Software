@@ -1,0 +1,28 @@
+snapshot_date,sprint,number,title,repository,state,status_column,assignees
+2026-08-27T20:42:23.744774+00:00,Lab01S03,26,Dashboard local para visualização unificada dos dados (RQ01-06),gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,arthies2323
+2026-08-27T20:42:23.744774+00:00,Lab01S03,19,LAB01S02 - Snapshot do board em CSV (fim de sprint),gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,arthies2323
+2026-08-27T20:42:23.744774+00:00,Lab01S03,18,LAB01S02 - RQ05 E RQ06 - Validar resultado para 1000,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,PortoPedro
+2026-08-27T20:42:23.744774+00:00,Lab01S03,20,LAB01S02 - Consolidar relatório da sprint,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,PortoPedro
+2026-08-27T20:42:23.744774+00:00,Lab01S03,17,LAB01S02 - RQ03 E RQ04 - Validar resultado para 1000,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,1,Configurar repositório do LAB01,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,2,Configurar GitHub Projects v2 e fluxo Kanban,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,7,(LAB01S01) - Validar resultados em 5–10 repositórios,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,"gsantss,arthies2323,PortoPedro"
+2026-08-27T20:42:23.744774+00:00,Lab01S03,4,(LAB01S01) - Implementar campos das RQ03 e RQ04,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,6,(LAB01S01) - Implementar chamada automática da API,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,8,(LAB01S01) - Executar e validar consulta dos 100 repositórios,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,5,(LAB01S01) - Implementar campos das RQ05 e RQ06,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,PortoPedro
+2026-08-27T20:42:23.744774+00:00,Lab01S03,10,feat: RQ03 e RQ04,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,11,feat: RQ03 e RQ04,gsantss/Laboratorio-de-Experimentacao-de-Software,MERGED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,3,(LAB01S01) - Implementar campos das RQ01 e RQ02,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,arthies2323
+2026-08-27T20:42:23.744774+00:00,Lab01S03,15,LAB01S02 - Adaptar script para 1000 repositórios com paginação,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,16,LAB01S02 - RQ01 E RQ02 - Validar resultado para 1000,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,arthies2323
+2026-08-27T20:42:23.744774+00:00,Lab01S03,21,feat: 1000 repositórios: extração e validação,gsantss/Laboratorio-de-Experimentacao-de-Software,MERGED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,28,LAB01S03 - Elaboração do relatório final,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,PortoPedro
+2026-08-27T20:42:23.744774+00:00,Lab01S03,31,Criar orquestrador principal para execução do projeto,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,32,Padronizar integração entre coleta e consumo dos dados,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,33,"Incrementar dashboard com KPIs, filtros e novas análises",gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,34,Adicionar análise por linguagem e correlação de métricas,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,35,Adicionar acompanhamento do Board e Sprint no dashboard,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,36,Atualizar documentação e fluxo de execução local,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,37,Atualizar dados e resultados da análise dos repositórios,gsantss/Laboratorio-de-Experimentacao-de-Software,CLOSED,Done,gsantss
+2026-08-27T20:42:23.744774+00:00,Lab01S03,38,feat: streamlit dev application,gsantss/Laboratorio-de-Experimentacao-de-Software,MERGED,Done,gsantss
