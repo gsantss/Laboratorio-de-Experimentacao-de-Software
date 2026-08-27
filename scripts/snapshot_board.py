@@ -20,15 +20,16 @@ from datetime import datetime, timezone
 
 GITHUB_GRAPHQL_URL = "https://api.github.com/graphql"
 
-PROJECT_OWNER = "gsantss"
-PROJECT_NUMBER = 2
+PROJECT_OWNER = os.getenv("PROJECT_OWNER", "gsantss")
+PROJECT_NUMBER = int(os.getenv("PROJECT_NUMBER", "2"))
 
-# Trocar a cada sprint antes de rodar.
-SPRINT_LABEL = "Lab01S02"
+# Pode ser sobrescrito via variável de ambiente, sem editar o código.
+SPRINT_LABEL = os.getenv("SPRINT_LABEL", "Lab01S02")
 
 BASE_DIR = Path(__file__).resolve().parent
+ROOT_DIR = BASE_DIR.parent
 
-OUTPUT_FILE = BASE_DIR / "data" / f"snapshot_board_{SPRINT_LABEL}.csv"
+OUTPUT_FILE = ROOT_DIR / "data" / f"snapshot_board_{SPRINT_LABEL}.csv"
 
 
 QUERY = """

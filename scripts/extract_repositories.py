@@ -28,8 +28,9 @@ RETRY_WAIT_SECONDS = 5
 
 
 BASE_DIR = Path(__file__).resolve().parent
+ROOT_DIR = BASE_DIR.parent
 
-OUTPUT_DIR = BASE_DIR / "data"
+OUTPUT_DIR = ROOT_DIR / "data"
 
 OUTPUT_FILE = (
     OUTPUT_DIR /
